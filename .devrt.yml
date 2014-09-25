@@ -1,0 +1,10 @@
+before_install:
+  - apt-get install -y libopencv-dev
+
+install:
+  - make
+
+simulation:
+  - project: robotpicking.xml
+    init:
+      - echo "here we start!"
