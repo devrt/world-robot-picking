@@ -1,0 +1,9 @@
+[submodule "model-desk"]
+	path = model-desk
+	url = https://github.com/devrt/model-desk.git
+[submodule "model-factory-conveyor"]
+	path = model-factory-conveyor
+	url = https://github.com/devrt/model-factory-conveyor.git
+[submodule "learn-control-pid"]
+	path = learn-control-pid
+	url = https://github.com/devrt/learn-control-pid.git
