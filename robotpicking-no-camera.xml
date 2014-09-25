@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<grxui>
+  <mode name="Simulation">
+    <item class="com.generalrobotix.ui.item.GrxSimulationItem" name="newsimulation0" select="true">
+      <property name="integrate" value="true"/>
+      <property name="viewsimulate" value="false"/>
+      <property name="totalTime" value="20.0 "/>
+      <property name="timeStep" value="0.001 "/>
+      <property name="realTime" value="true"/>
+      <property name="gravity" value="9.8 "/>
+      <property name="method" value="RUNGE_KUTTA"/>
+    </item>
+    <item class="com.generalrobotix.ui.item.GrxRTSItem" name="untitled" select="true">
+      <property name="pa10.period" value="0.005"/>
+      <property name="PA10Controller0.period" value="0.005"/>  
+      <property name="PA10Controller0.factory" value="PA10Controller"/>  
+      <property name="connection" value="pa10.q:PA10Controller0.angles"/>
+      <property name="connection" value="pa10.dq:PA10Controller0.vels"/>
+      <property name="connection" value="PA10Controller0.torque:pa10.qRef"/>
+      <property name="connection" value="belt.q:PA10Controller0.beltangles"/>
+      <property name="connection" value="belt.dq:PA10Controller0.beltvels"/>
+      <property name="connection" value="PA10Controller0.belttorque:belt.qRef"/>
+    </item>
+    <item class="com.generalrobotix.ui.item.GrxModelItem" name="pa10" select="true" url="$(CURRENT_DIR)/learn-control-pid/PA10/pa10.main.wrl">
+      <property name="J1.angle" value="0.0"/>
+      <property name="J2.angle" value="0.0"/>
+      <property name="J3.angle" value="0.0 "/>
+      <property name="J4.angle" value="0.8"/>
+      <property name="J5.angle" value="0.0 "/>
+      <property name="J6.angle" value="0.8"/>
+      <property name="J7.angle" value="1.57"/>
+      <property name="HAND_L.angle" value="-0.02"/>
+      <property name="HAND_R.angle" value="0.02"/>
+      <property name="BASE.rotation" value="0.0 0.0 1.0 0.0"/>
+      <property name="BASE.translation" value="0.0 0.0 0.0 "/>
+      <property name="isRobot" value="true"/>
+      <property name="inport" value="qRef:JOINT_TORQUE"/> 
+      <property name="outport" value="q:JOINT_VALUE"/>
+      <property name="outport" value="dq:JOINT_VELOCITY"/>
+    </item>
+    <item class="com.generalrobotix.ui.item.GrxModelItem" name="base" select="true" url="$(CURRENT_DIR)/model-factory-conveyor/conveyor-basement.wrl">
+      <property name="markRadius" value="0.05 "/>
+      <property name="root.rotation" value="0.0 0.0 1.0 1.57 "/>
+      <property name="root.translation" value="1.5 -0.5 0.0 "/>
+      <property name="root.velocity" value="0.0 0.0 0.0 "/>
+      <property name="root.mode" value="Torque"/>
+      <property name="isRobot" value="true"/>
+      <property name="root.angularVelocity" value="0.0 0.0 0.0 "/>
+    </item>
+    <item class="com.generalrobotix.ui.item.GrxModelItem" name="belt" select="true" url="$(CURRENT_DIR)/model-factory-conveyor/conveyor-belt.wrl">
+      <property name="markRadius" value="0.05 "/>
+      <property name="root.rotation" value="0.0 0.0 1.0 1.57 "/>
+      <property name="root.translation" value="0 0 0 "/>
+      <property name="root.velocity" value="0.0 0.0 0.0 "/>
+      <property name="isRobot" value="true"/>
+      <property name="WAIST.mode" value="Torque"/>
+      <property name="inport" value="qRef:JOINT_TORQUE"/>
+      <property name="outport" value="q:JOINT_VALUE"/>
+      <property name="outport" value="dq:JOINT_VELOCITY"/>
+    </item>
+    <item class="com.generalrobotix.ui.item.GrxModelItem" name="desk" select="true" url="$(CURRENT_DIR)/model-desk/desk.wrl">
+      <property name="markRadius" value="0.05 "/>
+      <property name="root.rotation" value="0.0 1.0 0.0 0.0 "/>
+      <property name="WAIST.translation" value="0.0 0.7 0.0 "/>
+      <property name="root.velocity" value="0.0 0.0 0.0 "/>
+      <property name="isRobot" value="true"/>
+    </item>
+    <item class="com.generalrobotix.ui.item.GrxModelItem" name="box" select="true" url="$(CURRENT_DIR)/box.wrl">
+      <property name="markRadius" value="0.05 "/>
+      <property name="root.rotation" value="0.0 1.0 0.0 0.0 "/>
+      <property name="root.translation" value="0.0 0.0 0.0 "/>
+      <property name="root.velocity" value="0.0 0.0 0.0 "/>
+      <property name="root.mode" value="Torque"/>
+      <property name="isRobot" value="true"/>
+    </item>
+    <item class="com.generalrobotix.ui.item.GrxModelItem" name="box2" select="true" url="$(CURRENT_DIR)/box2.wrl">
+      <property name="root.rotation" value="0.0 1.0 0.0 0.0 "/>
+      <property name="root.angularVelocity" value="0.0 0.0 0.0 "/>
+      <property name="isRobot" value="true"/>
+      <property name="root.velocity" value="0.0 0.0 0.0 "/>
+      <property name="root.mode" value="Torque"/>
+      <property name="root.translation" value="-1.6163441607375262E-7 -0.19116885341645684 -0.0039035897521655645 "/>
+    </item>
+    <item class="com.generalrobotix.ui.item.GrxModelItem" name="box3" select="true" url="$(CURRENT_DIR)/box3.wrl">
+      <property name="root.rotation" value="0.0 1.0 0.0 0.0 "/>
+      <property name="root.angularVelocity" value="0.0 0.0 0.0 "/>
+      <property name="isRobot" value="true"/>
+      <property name="root.velocity" value="0.0 0.0 0.0 "/>
+      <property name="root.mode" value="Torque"/>
+      <property name="root.translation" value="4.869006006158472E-7 0.03296082842280157 -0.22250463219590866 "/>
+    </item>
+    <item class="com.generalrobotix.ui.item.GrxWorldStateItem" name="newworldstate0" select="true">
+      <property name="logTimeStep" value="0.001 "/>
+    </item>
+    <item class="com.generalrobotix.ui.item.GrxCollisionPairItem" name="CP#pa10_#box_" select="true">
+      <property name="objectName2" value="belt"/>
+      <property name="objectName1" value="pa10"/>
+      <property name="jointName2" value=""/>
+      <property name="jointName1" value=""/>
+      <property name="slidingFriction" value="0.5"/>
+      <property name="staticFriction" value="0.5"/>
+      <property name="cullingThresh" value="0.01"/>
+    </item>
+    <item class="com.generalrobotix.ui.item.GrxCollisionPairItem" name="CP#pa10_#box_" select="true">
+      <property name="objectName2" value="box"/>
+      <property name="objectName1" value="pa10"/>
+      <property name="jointName2" value=""/>
+      <property name="jointName1" value=""/>
+      <property name="slidingFriction" value="0.5"/>
+      <property name="staticFriction" value="0.5"/>
+      <property name="cullingThresh" value="0.01"/>
+    </item>
+    <item class="com.generalrobotix.ui.item.GrxCollisionPairItem" name="CP#pa10_#box_" select="true">
+      <property name="objectName2" value="box2"/>
+      <property name="objectName1" value="pa10"/>
+      <property name="jointName2" value=""/>
+      <property name="jointName1" value=""/>
+      <property name="slidingFriction" value="0.5"/>
+      <property name="staticFriction" value="0.5"/>
+      <property name="cullingThresh" value="0.01"/>
+    </item>
+    <item class="com.generalrobotix.ui.item.GrxCollisionPairItem" name="CP#pa10_#box_" select="true">
+      <property name="objectName2" value="box3"/>
+      <property name="objectName1" value="pa10"/>
+      <property name="jointName2" value=""/>
+      <property name="jointName1" value=""/>
+      <property name="slidingFriction" value="0.5"/>
+      <property name="staticFriction" value="0.5"/>
+      <property name="cullingThresh" value="0.01"/>
+    </item>
+    <item class="com.generalrobotix.ui.item.GrxCollisionPairItem" name="CP#belt_#box_" select="true">
+      <property name="objectName2" value="box"/>
+      <property name="objectName1" value="belt"/>
+      <property name="jointName2" value=""/>
+      <property name="jointName1" value=""/>
+      <property name="slidingFriction" value="0.5"/>
+      <property name="staticFriction" value="0.5"/>
+      <property name="cullingThresh" value="0.01"/>
+    </item>
+    <item class="com.generalrobotix.ui.item.GrxCollisionPairItem" name="CP#model-box2_#belt_" select="true">
+      <property name="objectName2" value="belt"/>
+      <property name="objectName1" value="box2"/>
+      <property name="jointName2" value=""/>
+      <property name="jointName1" value=""/>
+      <property name="slidingFriction" value="0.5"/>
+      <property name="staticFriction" value="0.5"/>
+      <property name="cullingThresh" value="0.01"/>
+    </item>
+    <item class="com.generalrobotix.ui.item.GrxCollisionPairItem" name="CP#model-box3_#belt_" select="true">
+      <property name="objectName2" value="belt"/>
+      <property name="objectName1" value="box3"/>
+      <property name="jointName2" value=""/>
+      <property name="jointName1" value=""/>
+      <property name="slidingFriction" value="0.5"/>
+      <property name="staticFriction" value="0.5"/>
+      <property name="cullingThresh" value="0.01"/>
+    </item>
+    <item class="com.generalrobotix.ui.item.GrxCollisionPairItem" name="CP#box_#model-box2_" select="true">
+      <property name="objectName2" value="box2"/>
+      <property name="objectName1" value="box"/>
+      <property name="jointName2" value=""/>
+      <property name="jointName1" value=""/>
+      <property name="slidingFriction" value="0.5"/>
+      <property name="staticFriction" value="0.5"/>
+      <property name="cullingThresh" value="0.01"/>
+    </item>
+    <item class="com.generalrobotix.ui.item.GrxCollisionPairItem" name="CP#model-box2_#model-box3_" select="true">
+      <property name="objectName2" value="box3"/>
+      <property name="objectName1" value="box2"/>
+      <property name="jointName2" value=""/>
+      <property name="jointName1" value=""/>
+      <property name="slidingFriction" value="0.5"/>
+      <property name="staticFriction" value="0.5"/>
+      <property name="cullingThresh" value="0.01"/>
+    </item>
+    <item class="com.generalrobotix.ui.item.GrxCollisionPairItem" name="CP#box_#model-box3_" select="true">
+      <property name="objectName2" value="box3"/>
+      <property name="objectName1" value="box"/>
+      <property name="jointName2" value=""/>
+      <property name="jointName1" value=""/>
+      <property name="slidingFriction" value="0.5"/>
+      <property name="staticFriction" value="0.5"/>
+      <property name="cullingThresh" value="0.01"/>
+    </item>
+    <view class="com.generalrobotix.ui.view.Grx3DView" name="3DView">
+      <property name="view.mode" value="Room"/>
+      <property name="showCollision" value="false"/>
+    </view>
+    <view class="com.generalrobotix.ui.view.GrxRobotStatView" name="Robot State">
+      <property name="jcolumnWidth9" value="50"/>
+      <property name="jcolumnWidth8" value="40"/>
+      <property name="jcolumnWidth7" value="40"/>
+      <property name="jcolumnWidth6" value="40"/>
+      <property name="jcolumnWidth5" value="40"/>
+      <property name="jcolumnWidth4" value="60"/>
+      <property name="jcolumnWidth3" value="60"/>
+      <property name="jcolumnWidth10" value="69 "/>
+      <property name="jcolumnWidth2" value="60"/>
+      <property name="scolumnWidth6" value="75"/>
+      <property name="jcolumnWidth1" value="90"/>
+      <property name="scolumnWidth5" value="75"/>
+      <property name="scolumnWidth4" value="75"/>
+      <property name="jcolumnWidth0" value="30"/>
+      <property name="scolumnWidth3" value="75"/>
+      <property name="scolumnWidth2" value="75"/>
+      <property name="scolumnWidth1" value="75"/>
+      <property name="scolumnWidth0" value="110"/>
+    </view>
+  </mode>
+</grxui>
