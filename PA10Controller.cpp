@@ -125,10 +125,9 @@ RTC::ReturnCode_t PA10Controller::onExecute(RTC::UniqueId ec_id)
 
   m_torqueOut.write(); 
 
-  m_belttorque.data.length(3);
+  m_belttorque.data.length(2);
   m_belttorque.data[0] = 0.1;
   m_belttorque.data[1] = 0.1;
-  m_belttorque.data[2] = 0.1;
   m_belttorqueOut.write(); 
 
   return RTC::RTC_OK;
